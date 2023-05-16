@@ -4,11 +4,25 @@ const EmployeeForm = () => {
   const handlingSubmit = (e) => {
     e.preventDefault();
   };
+
   const enteringValue = (e) => {
     if (e.key === "Enter") {
-      console.log(e.target.value);
+      const employeeNameInfo =
+        e.target.parentElement.previousSibling.childNodes[1].value;
+
+      const employeeDOBInfo = e.target.value;
+      console.log(employeeNameInfo, employeeDOBInfo);
     }
   };
+
+  function handleEnter(event) {
+    if (event.key === "Enter") {
+      const form = event.target.form;
+      const index = Array.prototype.indexOf.call(form, event.target);
+      form.elements[index + 1].focus();
+      event.preventDefault();
+    }
+  }
 
   return (
     <form onSubmit={handlingSubmit} className="employee-form">
@@ -18,7 +32,8 @@ const EmployeeForm = () => {
           type="text"
           className="name-input input"
           placeholder="Employee Name"
-          onKeyDown={enteringValue}
+          required
+          onKeyDown={handleEnter}
         />
       </label>
       <label className="birthday-input-label label">
@@ -27,9 +42,10 @@ const EmployeeForm = () => {
           type="date"
           className="birthday-input input"
           onKeyDown={enteringValue}
+          required
         />
       </label>
-      <button type="submit" className="submit-btn">
+      <button type="submit" className="submit-btn" onClick={handleEnter}>
         &#43;
       </button>
     </form>
