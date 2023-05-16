@@ -1,6 +1,17 @@
 import "./employeeform.css";
 
+import { useState } from "react";
+
 const EmployeeForm = () => {
+  const [employeeInfo, setEmployeeInfo] = useState([
+    {
+      employeeName: "",
+      employeeDOB: null,
+    },
+  ]);
+
+  console.log(employeeInfo);
+
   const handlingSubmit = (e) => {
     e.preventDefault();
   };
@@ -11,10 +22,17 @@ const EmployeeForm = () => {
         e.target.parentElement.previousSibling.childNodes[1].value;
 
       const employeeDOBInfo = e.target.value;
-      console.log(employeeNameInfo, employeeDOBInfo);
+
+      setEmployeeInfo([
+        {
+          employeeName: employeeNameInfo,
+          employeeDOB: employeeDOBInfo,
+        },
+      ]);
     }
   };
 
+  console.log(employeeInfo);
   function handleEnter(event) {
     if (event.key === "Enter") {
       const form = event.target.form;
@@ -45,9 +63,6 @@ const EmployeeForm = () => {
           required
         />
       </label>
-      <button type="submit" className="submit-btn" onClick={handleEnter}>
-        &#43;
-      </button>
     </form>
   );
 };
