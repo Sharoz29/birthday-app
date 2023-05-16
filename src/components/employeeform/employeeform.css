@@ -1,0 +1,38 @@
+.employee-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 70%;
+  border: 1px solid rgb(29, 29, 29);
+  align-items: center;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 5px;
+}
+.input {
+  width: 20rem;
+  height: 2.5rem;
+
+  font-size: 1.25rem;
+  padding-left: 1rem;
+}
+.input:active {
+  border: none;
+  border-bottom: 2px solid rgb(100, 100, 222);
+}
+.submit-btn {
+  height: 2.5rem;
+  margin-top: 1.5rem;
+  font-size: 2rem;
+  color: white;
+  background-color: rgb(29, 29, 29);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0 0.5rem;
+}

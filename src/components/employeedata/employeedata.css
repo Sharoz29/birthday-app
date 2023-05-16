@@ -1,0 +1,11 @@
+.employee-data-table {
+  width: 72.5%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+td,
+th {
+  border: 1px solid rgb(29, 29, 29);
+  text-align: left;
+  padding: 1rem;
+}
