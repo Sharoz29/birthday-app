@@ -41,9 +41,15 @@ const EmployeeForm = ({ employeeInfo, setEmployeeInfo }) => {
         return item;
       }
     });
-    console.log(existingCakeDay);
+
     if (existingCakeDay) {
-      employeeInfo.pop(existingCakeDay);
+      const indexOfExisting = employeeInfo.findIndex(
+        (obj) => obj === existingCakeDay
+      );
+      if (indexOfExisting > -1) {
+        employeeInfo.splice(existingCakeDay, 1);
+      }
+
       employeeInfo.push({
         employeeName: existingCakeDay.employeeName,
         employeeDOB: existingCakeDay.employeeDOB,

@@ -1,21 +1,10 @@
 import "./employeedata.css";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 
 const EmployeeData = ({ employeeInfo }) => {
-  // const [unique, setUnique] = useState([]);
-  // const [cakeSize, setCakeSize] = useState([]);
-
-  // const uniqueValue = (array, propertyName) => {
-  //   return array.filter(
-  //     (e, i) =>
-  //       array.findIndex((a) => a[propertyName] === e[propertyName]) === i
-  //   );
-  // };
-  // const uniqueBdays = uniqueValue(employeeInfo, "employeeCakeDay");
-
   return (
     <Fragment>
-      {employeeInfo && (
+      {employeeInfo.length !== 0 && (
         <table className="employee-data-table">
           <thead>
             <tr>
@@ -43,5 +32,3 @@ const EmployeeData = ({ employeeInfo }) => {
   );
 };
 export default EmployeeData;
-
-//checker(uniqueBdays,

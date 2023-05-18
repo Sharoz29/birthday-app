@@ -2,6 +2,7 @@ import "./homepage.css";
 import EmployeeForm from "../employeeform/employeeform";
 import EmployeeData from "../employeedata/employeedata";
 import { useState } from "react";
+import PieGraph from "../piechart/piechart";
 
 const HomePage = () => {
   const [employeeInfo, setEmployeeInfo] = useState([]);
@@ -14,6 +15,7 @@ const HomePage = () => {
         setEmployeeInfo={setEmployeeInfo}
       />
       <EmployeeData employeeInfo={employeeInfo} />
+      <PieGraph employeeInfo={employeeInfo} />
     </div>
   );
 };
