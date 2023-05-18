@@ -13,6 +13,7 @@ const EmployeeForm = ({ employeeInfo, setEmployeeInfo }) => {
     const thisYear = new Date().getFullYear().toString();
     const bdayThisYear = new Date(`${thisYear}-${days}`);
     const bdayDayThisYear = bdayThisYear.getDay();
+
     //If the birthday is on a Sunday
     if (bdayDayThisYear === 0) {
       const nextDay = new Date(bdayThisYear);
@@ -34,6 +35,29 @@ const EmployeeForm = ({ employeeInfo, setEmployeeInfo }) => {
     }
   };
 
+  const cakeSize = (date) => {
+    const existingCakeDay = employeeInfo?.find((item) => {
+      if (item.employeeCakeDay === date) {
+        return item;
+      }
+    });
+    console.log(existingCakeDay);
+    if (existingCakeDay) {
+      employeeInfo.pop(existingCakeDay);
+      employeeInfo.push({
+        employeeName: existingCakeDay.employeeName,
+        employeeDOB: existingCakeDay.employeeDOB,
+        employeeCakeDay: existingCakeDay.employeeCakeDay,
+        cakeSize: "Large Cake",
+      });
+
+      return `Large Cake`;
+    }
+    if (!existingCakeDay) {
+      return `Small Cake`;
+    }
+  };
+
   const enteringValue = (e) => {
     if (e.key === "Enter") {
       //Extracting Employee Data
@@ -42,6 +66,8 @@ const EmployeeForm = ({ employeeInfo, setEmployeeInfo }) => {
 
       const employeeDOBInfo = e.target.value;
       const employeeCakeDayInfo = cakeDay(employeeDOBInfo);
+      const cakeSizeInfo = cakeSize(employeeCakeDayInfo);
+
       //Clearing input fields
       inputRef.current.reset();
 
@@ -53,6 +79,7 @@ const EmployeeForm = ({ employeeInfo, setEmployeeInfo }) => {
             employeeName: employeeNameInfo,
             employeeDOB: employeeDOBInfo,
             employeeCakeDay: employeeCakeDayInfo,
+            cakeSize: cakeSizeInfo,
           },
         ]);
       }
@@ -62,6 +89,7 @@ const EmployeeForm = ({ employeeInfo, setEmployeeInfo }) => {
             employeeName: employeeNameInfo,
             employeeDOB: employeeDOBInfo,
             employeeCakeDay: employeeCakeDayInfo,
+            cakeSize: cakeSizeInfo,
           },
         ]);
       }

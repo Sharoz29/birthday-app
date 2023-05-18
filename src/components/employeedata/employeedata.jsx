@@ -1,8 +1,17 @@
 import "./employeedata.css";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 const EmployeeData = ({ employeeInfo }) => {
-  // console.log(employeeInfo);
+  // const [unique, setUnique] = useState([]);
+  // const [cakeSize, setCakeSize] = useState([]);
+
+  // const uniqueValue = (array, propertyName) => {
+  //   return array.filter(
+  //     (e, i) =>
+  //       array.findIndex((a) => a[propertyName] === e[propertyName]) === i
+  //   );
+  // };
+  // const uniqueBdays = uniqueValue(employeeInfo, "employeeCakeDay");
 
   return (
     <Fragment>
@@ -23,7 +32,7 @@ const EmployeeData = ({ employeeInfo }) => {
                   <td>{info.employeeName}</td>
                   <td>{info.employeeDOB}</td>
                   <td>{info.employeeCakeDay}</td>
-                  <td>Small</td>
+                  <td>{info.cakeSize}</td>
                 </tr>
               );
             })}
@@ -34,3 +43,5 @@ const EmployeeData = ({ employeeInfo }) => {
   );
 };
 export default EmployeeData;
+
+//checker(uniqueBdays,
